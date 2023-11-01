@@ -80,7 +80,7 @@ const ProductDetails = () => {
     e.preventDefault();
     console.log(formData);
     try {
-      const response = await fetch('https://spicesss.onrender.com/submit-review', {
+      const response = await fetch('https://wert-d1fo.onrender.com/submit-review', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
