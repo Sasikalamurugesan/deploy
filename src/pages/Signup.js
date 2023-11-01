@@ -1,114 +1,204 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import "../styles/signup.css";
-function Signup() {
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    contactNumber: '',
-  });
+import { useNavigate } from 'react-router-dom';
+import {Link} from "react-router-dom";
 
-  const { username, email, password, contactNumber } = formData;
-  const navigate = useNavigate();
+const Signup = () => {
+  const containerStyle = {
+  
+    minHeight: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    backgroundImage: `url('https://img.freepik.com/free-photo/solid-gray-concrete-textured-wall_53876-110803.jpg?size=626&ext=jpg&ga=GA1.1.455358885.1692768358&semt=ais')`, // Set the background image here
+  backgroundSize: 'cover', 
+  
   };
+
+  const cardStyle = {
+    borderRadius: '1rem',
+    display: 'flex',
+    flexDirection: 'row',
+    overflow: 'hidden',
+  };
+
+  const imageStyle = {
+    height: '530px',
+    width: '500px',
+    borderRadius: '1rem 0 0 1rem',
+  };
+
+  const formStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: ' 2rem',
+    color: 'black',
+  };
+
+  const boxStyle = {
+    border: '1px solid #ccc',
+    borderRadius: '1rem',
+    padding: '2rem',
+    backgroundColor: 'white',
+    boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.3)',
+    width: '900px',
+    height: '750px',
+  };
+
+  const inputStyle = {
+    marginBottom: '1rem',
+    padding: '1rem',
+    fontSize: '1rem',
+    border: '1px solid black',
+    borderRadius: '0.25rem',
+  };
+
+  const buttonStyle = {
+    width: '80%',
+    padding: '1rem',
+    fontSize: '1rem',
+    backgroundColor: 'black',
+    color: 'white',
+    borderRadius: '0.25rem',
+    border: 'none',
+    cursor: 'pointer',
+  };
+
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
-
-    if (username === '' || email === '' || password === '' || contactNumber === '') {
-      Swal.fire('Please fill in all fields', '', 'warning');
+    if (
+      username === '' ||
+      email === '' ||
+      password === '' ||
+      firstName === '' ||
+      lastName === ''
+    ) {
+      alert('Please fill in all fields');
     } else {
       try {
-        const response = await fetch('https://front-ct.onrender.com/signup', {
+        const response = await fetch('https://backvar1.onrender.com/signup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify({
+            username,
+            email,
+            password,
+            firstName,
+            lastName,
+          }),
         });
 
         if (response.ok) {
-          Swal.fire('Login successfully. Welcome!', '', 'success');
-          navigate('/Lhome');
-        } else {
-          const data = await response.json();
-          console.error('Server response:', data);
-          alert('An error occurred during registration: ' + data.message);
+          
+          alert('Registration Successfully');
         }
       } catch (error) {
-        console.error('Client error:', error);
-        alert('An error occurred during registration: ' + error.message);
+        console.error(error);
+        alert('An error occurred during registration');
       }
     }
   };
 
   return (
-    <div className="sign">
-      <div className="login-container">
-        <div className="signup-content">
-          <div className="login-form">
-            <h2></h2>
-
-            <form onSubmit={handleSignup}>
-              <div className="form-group">
-                <input
-                  type="text"
-                  id="username"
-                  name="username"
-                  required
-                  placeholder="Username"
-                  value={username}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  placeholder="Email address"
-                  value={email}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  required
-                  placeholder="Password"
-                  value={password}
-                  onChange={handleInputChange}
-                />
-              </div>
-              
-              <button type="submit">Login</button>
-              <br />
-              <br />
-              
-            </form>
-          </div>
-          <div className="sign-image">
+    <div style={containerStyle}>
+      
+      <div style={boxStyle}>
+        <div className="card" style={cardStyle}>
+          <div className="col-md-6 col-lg-7 d-none d-md-block">
             <img
-              src="https://content1.getnarrativeapp.com/static/d6a80e0b-ff68-4f12-89d6-d863ee7204d0/Griffin%E2%80%99s-Wedding-Flowers-Columbus-Ohio-.jpg?w=750 "
-              alt="Login"
+              src="https://img.freepik.com/free-vector/spices-herbs-tag-decorated-with-leaves-dill-basil-bay-powder-curry-paprika-realistic-illustration_1284-61200.jpg?size=626&ext=jpg&ga=GA1.1.455358885.1692768358&semt=sph"
+              alt="signup form"
+              className="img-fluid"
+              style={imageStyle}
             />
+          </div>
+          <div className="col-md-7 col-lg-5 d-flex align-items-center">
+            <div style={formStyle}>
+              <form onSubmit={handleSignup} className="signup">
+                <div className="mb-4">
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    style={inputStyle}
+                    required
+                    placeholder="First Name"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                  />
+                </div>
+                <div className="mb-4">
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    style={inputStyle}
+                    required
+                    placeholder="Last Name"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                  />
+                </div>
+                <div className="mb-4">
+                  <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    style={inputStyle}
+                    required
+                    placeholder="Username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+                </div>
+                <div className="mb-4">
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    style={inputStyle}
+                    required
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <div className="mb-4">
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    style={inputStyle}
+                    required
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+                <div className="pt-1 mb-4">
+                  <button style={buttonStyle} type="submit">
+                    Sign Up
+                  </button><br/><br/>
+                  <p>Already have an account? <Link to="/login">Login</Link></p>
+                  
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Signup;
