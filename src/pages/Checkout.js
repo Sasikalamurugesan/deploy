@@ -7,6 +7,7 @@ import {useSelector} from "react-redux";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Header from "../components/Header/Header";
+import {BASE_URL} from '../config';
 
 const Checkout=()=>{
 
@@ -36,7 +37,7 @@ const handleFormSubmit = async (e) => {
   e.preventDefault();
   console.log(formData);
   try {
-    const response = await fetch('https://wert-d1fo.onrender.com/submit-billing', {
+    const response = await fetch(`${ BASE_URL }/submit-billing`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
