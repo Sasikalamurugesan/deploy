@@ -84,7 +84,7 @@ const Signup = () => {
       alert('Please fill in all fields');
     } else {
       try {
-        const response = await fetch('https://spicesss.onrender.com/signup', {
+        const response = await fetch('https://wert-d1fo.onrender.com/signup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
