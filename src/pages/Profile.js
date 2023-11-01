@@ -35,23 +35,23 @@ function Profile() {
           <div className="profile-header">
             
             <div className="profile-info">
-            {user && (
+         
         <div>
           
        
               <p className="profile-h">PROFILE</p>
               <hr/>
-              <p className="profile-other">username&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {user.username}</p>
+              <p className="profile-other">username&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; sasikala</p>
               <hr />
-              <p className="profile-other">Email&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {user.email}</p>
+              <p className="profile-other">Email&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; sasikalamurugesan@gmail.com</p>
               <hr />
-              <p className="profile-other">FirstName&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;{user.firstName}</p>
+              <p className="profile-other">FirstName&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;sasismurugesan</p>
               <hr/>
             
               
               
               </div>
-      )}
+
             </div>
 
            
