@@ -10,6 +10,7 @@ import CommonSection from "../components/UI/CommonSection";
 import "../styles/product-details.css";
 import { motion } from "framer-motion";
 import ProductsList from "../components/UI/ProductsList";
+import {BASE_URL} from '../config';
 
 
 import { useNavigate } from 'react-router-dom';
@@ -80,7 +81,7 @@ const ProductDetails = () => {
     e.preventDefault();
     console.log(formData);
     try {
-      const response = await fetch('https://wert-d1fo.onrender.com/submit-review', {
+      const response = await fetch(`${ BASE_URL }/submit-review`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
