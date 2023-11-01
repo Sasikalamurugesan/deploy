@@ -39,14 +39,15 @@ function Profile() {
         <div>
           
        
-              <p className="profile-h">PROFILE</p>
+              <p className="profile-h"></p>
+              <hr/>
+              <p className="profile-other">FirstName&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;sasismurugesan</p>
               <hr/>
               <p className="profile-other">username&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; sasikala</p>
               <hr />
               <p className="profile-other">Email&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; sasikalamurugesan@gmail.com</p>
               <hr />
-              <p className="profile-other">FirstName&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;sasismurugesan</p>
-              <hr/>
+              
             
               
               
