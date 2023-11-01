@@ -36,7 +36,7 @@ const handleFormSubmit = async (e) => {
   e.preventDefault();
   console.log(formData);
   try {
-    const response = await fetch('https://spicesss.onrender.com/submit-billing', {
+    const response = await fetch('https://wert-d1fo.onrender.com/submit-billing', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
