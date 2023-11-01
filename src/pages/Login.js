@@ -17,7 +17,7 @@ const Login = () => {
     }
   
     try {
-      const response = await fetch('/login', {
+      const response = await fetch('https://spicesss.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
