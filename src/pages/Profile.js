@@ -9,7 +9,7 @@ function Profile() {
     
     const token = localStorage.getItem('token');
     if (token) {
-      fetch('/getprofile', {
+      fetch('https://wert-d1fo.onrender.com/getprofile', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
