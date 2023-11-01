@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css'; 
 import { Link } from 'react-router-dom';
 import Header from '../components/Header/Header';
-import {BASE_URL} from '../config';
+
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -18,7 +18,7 @@ const Login = () => {
     }
   
     try {
-      const response = await fetch(`${ BASE_URL }/login`, {
+      const response = await fetch('https://backvar1.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
