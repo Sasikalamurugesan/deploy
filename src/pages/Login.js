@@ -10,39 +10,24 @@ const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
   const handleLogin = async (e) => {
-    e.preventDefault();
-  
-    if (!username || !password) {
-      alert('Please fill in all fields');
-      return;
-    }
-  
-    try {
-      const response = await fetch('https://backvar1.onrender.com/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
-  
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem('token', data.token);
-  
-        alert('Login Successful');
-        navigate('/Lhome');
-      } else {
-        // Handle login failure
-        alert('Invalid username or password');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      // Handle other errors
-      alert('An error occurred during login.');
-    }
-  };
-  
+  e.preventDefault();
+
+  if (!username || !password) {
+    alert('Please fill in all fields');
+    return;
+  }
+
+  if (password === 'sasikala') {
+    // Simulating a successful login with the password "sasikala"
+    localStorage.setItem('token', 'yourAuthToken'); // Replace 'yourAuthToken' with your actual token
+    alert('Login Successful');
+    navigate('/Lhome');
+  } else {
+    // Handle login failure for other passwords
+    alert('Invalid username or password');
+  }
+};
+
 
   const containerStyle = {
     minHeight: '100vh',
