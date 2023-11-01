@@ -108,7 +108,7 @@ const Logheader = () => {
                                     <a href="/Lblog" onClick={navigateToLblog}>Blog</a>
                                 </li>
                                 <li className="nav_item">
-                                    <a href="/profile" onClick={navigateToProfile}>{user&&(<span >{user.username}</span>)}</a>
+                                    <a href="/profile" onClick={navigateToProfile}>sasikala</a>
                                 </li>
                             </ul>
                         </div>
