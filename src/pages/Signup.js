@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {Link} from "react-router-dom";
-import {BASE_URL} from '../config';
+
 const Signup = () => {
   const containerStyle = {
   
@@ -84,7 +84,7 @@ const Signup = () => {
       alert('Please fill in all fields');
     } else {
       try {
-        const response = await fetch(`${ BASE_URL }/signup`, {
+        const response = await fetch('https://backvar1.onrender.com/signup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
