@@ -1,12 +1,11 @@
-import React from 'react';
-import { useState ,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import "../styles/profile.css";
 import Logheader from '../components/Header/Logheader';
+
 function Profile() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    
     const token = localStorage.getItem('token');
     if (token) {
       fetch('https://wert-d1fo.onrender.com/getprofile', {
@@ -23,44 +22,37 @@ function Profile() {
         });
     }
   }, []);
-  
 
   return (
-    <div><Logheader/>
-    <div className="app">
-
-      <div className="app-main">
-       
-        <div className="profile">
-          <div className="profile-header">
-            
-            <div className="profile-info">
-         
-        <div>
-          
-       
-              <p className="profile-h"></p>
-              <hr/>
-              <p className="profile-other">FirstName&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;sasismurugesan</p>
-              <hr/>
-              <p className="profile-other">username&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; sasikala</p>
-              <hr />
-              <p className="profile-other">Email&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; sasikalamurugesan@gmail.com</p>
-              <hr />
-              
-            
-              
-              
+    <div>
+      <Logheader />
+      <div className="app">
+        <div className="app-main">
+          <div className="profile">
+            <div className="profile-header">
+              <div className="profile-info">
+                {user && (
+                  <div>
+                    <img src="https://img.freepik.com/premium-vector/social-avatar-stories-gradient-frame_41737-3.jpg?size=626&ext=jpg&ga=GA1.1.455358885.1692768358&semt=ais" alt="User Profile Logo" className="profile-logo" />
+                    <p className="profile-h">PROFILE</p>
+                    <hr />
+                    <p className="profile-other">FirstName: {user.firstName}</p>
+                    <hr/>
+                    <p className="profile-other">LastName: {user.lastName}</p>
+                    <hr/>
+                    <p className="profile-other">Username: {user.username}</p>
+                    <hr />
+                    <p className="profile-other">Email: {user.email}</p>
+                    <hr />
+                    
+                  </div>
+                )}
               </div>
-
             </div>
-
-           
           </div>
         </div>
       </div>
-    </div></div>
-  
+    </div>
   );
 }
 
