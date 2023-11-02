@@ -3,31 +3,45 @@ import { useNavigate } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css'; 
 import { Link } from 'react-router-dom';
 import Header from '../components/Header/Header';
-
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
   const handleLogin = async (e) => {
-  e.preventDefault();
-
-  if (!username || !password) {
-    alert('Please fill in all fields');
-    return;
-  }
-
-  if (password === 'sasikala') {
-    // Simulating a successful login with the password "sasikala"
-    localStorage.setItem('token', 'yourAuthToken'); // Replace 'yourAuthToken' with your actual token
-    alert('Login Successful');
-    navigate('/Lhome');
-  } else {
-    // Handle login failure for other passwords
-    alert('Invalid username or password');
-  }
-};
-
+    e.preventDefault();
+  
+    if (!username || !password) {
+      alert('Please fill in all fields');
+      return;
+    }
+  
+    try {
+      const response = await fetch('https://wert-d1fo.onrender.com/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem('token', data.token);
+  
+        alert('Login Successful');
+        navigate('/Lhome');
+      } else {
+        // Handle login failure
+        alert('Invalid username or password');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle other errors
+      alert('An error occurred during login.');
+    }
+  };
+  
 
   const containerStyle = {
     minHeight: '100vh',
@@ -53,6 +67,7 @@ const Login = () => {
   };
 
   const inputContainerStyle = {
+    
     display: 'flex',
     alignItems: 'center',
     width: '100%',
